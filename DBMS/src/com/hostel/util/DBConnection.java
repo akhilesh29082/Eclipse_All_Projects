@@ -1,0 +1,16 @@
+package com.hostel.util;
+import java.sql.*;
+
+public class DBConnection {
+    public static Connection getConnection() {
+        Connection con = null;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            // Update 'xe', 'system', and 'password' with your Oracle details
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "password");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return con;
+    }
+}
